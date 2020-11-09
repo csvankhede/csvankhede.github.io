@@ -13,7 +13,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="I turn coffee :coffee: into code, use tabs over spaces and never broke production.">
+  <meta name="description" content="I'm Chhaya Vankhede a Machine learning engineer, making machine learning work in real world.">
 
   <title>CSVANKHEDE</title>
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
@@ -45,8 +45,7 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav ml-auto">
-<a class="nav-item nav-link " href="/projects/">Projects</a>
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link " href="/projects/">Projects</a>
 
       <a class="nav-item nav-link active" href="/blog/">Blog</a>
 
@@ -92,35 +91,35 @@
 
 <p>Here the data set is quite simple as it contains only timestamp and Bitcoin price.</p>
 
-<p><img src="https://cdn-images-1.medium.com/max/2000/0*yvrbe7367nJMSCHT.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*yvrbe7367nJMSCHT.png" alt="" /></p>
 
 <p>Below is the visualization of the data set.</p>
 
-<p><img src="https://cdn-images-1.medium.com/max/2000/0*iM-HFcBZYN_WH2za.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*iM-HFcBZYN_WH2za.png" alt="" /></p>
 
 <p>Here we will use the past 9 days data for prediction and normalize it. Below are the functions to perform this task.</p>
 
-<p><img src="https://cdn-images-1.medium.com/max/2000/0*Got-ZEPzucPnVK2n.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*Got-ZEPzucPnVK2n.png" alt="" /></p>
 
 <p>Split the data into train and test set.</p>
 
-<p><img src="https://cdn-images-1.medium.com/max/2000/0*pyVelKTnKQmFaW1g.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*pyVelKTnKQmFaW1g.png" alt="" /></p>
 
 <h2 id="create-a-model">Create a Model</h2>
 
 <p>The model will consist of two LSTM layers and two dense layers. Below is the model architecture, you can try a different combination of the parameter and different model architectures. Usually, LSTM models consist of a few layers. As it is a regression problem so we will use linear as an activation function.</p>
 
-<p><img src="https://cdn-images-1.medium.com/max/2000/0*YjPZzM-csuLOdYGM.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*YjPZzM-csuLOdYGM.png" alt="" /></p>
 
 <p>Now it is time to train the model, you can train model over different parameters.</p>
 
-<p><img src="https://cdn-images-1.medium.com/max/2000/0*hUea3uhxFSu9-15q.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*hUea3uhxFSu9-15q.png" alt="" /></p>
 
 <p>After 25 epochs model is trained and now we can use it to predict next day’s Bitcoin price. Do not forget to save the model so you can use it later.</p>
 
 <p>To predict for tomorrow’s price we need past 9 days data. Below new_sample is past 9 days data. We will normalize it and then we will predict. As it will give the value between 0 to 1 we need to de-normalize it to get the real value</p>
 
-<p><img src="https://cdn-images-1.medium.com/max/2000/0*8fAdOo7xUk8NzD87.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*8fAdOo7xUk8NzD87.png" alt="" /></p>
 
 <p>Although it gives the pretty good results they are quite different than actual values. Therefore, the model needs to be improved.</p>
 
@@ -128,7 +127,7 @@
 
 <p>Thanks for reading this article.</p>
 
-<p><img src="https://cdn-images-1.medium.com/max/2000/0*9KMQ6SuIDSX6uEN3" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*9KMQ6SuIDSX6uEN3" alt="" /></p>
 
 <p>AI and machine learning enthusiast. <a href="https://csvankhede.wordpress.com/author/csvankhede/">View all posts by csvankhede</a></p>
 
@@ -148,25 +147,44 @@
     by <strong>Chhaya Vankhede</strong>
   </small>
 
-  <div class="container-fluid justify-content-center">
-<a class="social mx-1" href="mailto:c.s.vankhede@gmail.com" style="color: #6c757d" onmouseover="this.style.color='#db4437'" onmouseout="this.style.color='#6c757d'">
+  <div class="container-fluid justify-content-center"><a class="social mx-1"  href="mailto:c.s.vankhede@gmail.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
       <i class="fas fa-envelope fa-1x"></i>
-    </a><a class="social mx-1" href="https://www.github.com/https://github.com/csvankhede" style="color: #6c757d" onmouseover="this.style.color='#333333'" onmouseout="this.style.color='#6c757d'">
+    </a><a class="social mx-1"  href="https://www.github.com/https://github.com/csvankhede"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
       <i class="fab fa-github fa-1x"></i>
-    </a><a class="social mx-1" href="https://www.kaggle.com/https://www.kaggle.com/csvankhede" style="color: #6c757d" onmouseover="this.style.color='#20beff'" onmouseout="this.style.color='#6c757d'">
+    </a><a class="social mx-1"  href="https://www.kaggle.com/https://www.kaggle.com/csvankhede"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#20beff'"
+       onMouseOut="this.style.color='#6c757d'">
       <i class="fab fa-kaggle fa-1x"></i>
-    </a><a class="social mx-1" href="https://www.linkedin.com/in/https://www.linkedin.com/in/chhaya-vankhede-923a17146/" style="color: #6c757d" onmouseover="this.style.color='#007bb5'" onmouseout="this.style.color='#6c757d'">
+    </a><a class="social mx-1"  href="https://www.linkedin.com/in/https://www.linkedin.com/in/chhaya-vankhede-923a17146/"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
       <i class="fab fa-linkedin-in fa-1x"></i>
-    </a><a class="social mx-1" href="https://medium.com/@https://medium.com/@c.s.vankhede" style="color: #6c757d" onmouseover="this.style.color='#00ab6c'" onmouseout="this.style.color='#6c757d'">
+    </a><a class="social mx-1"  href="https://medium.com/@https://medium.com/@c.s.vankhede"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#00ab6c'"
+       onMouseOut="this.style.color='#6c757d'">
       <i class="fab fa-medium fa-1x"></i>
-    </a><a class="social mx-1" href="https://stackoverflow.com/u/https://stackoverflow.com/users/5847441/chhaya-vankhede" style="color: #6c757d" onmouseover="this.style.color='#f48024'" onmouseout="this.style.color='#6c757d'">
+    </a><a class="social mx-1"  href="https://stackoverflow.com/u/https://stackoverflow.com/users/5847441/chhaya-vankhede"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#f48024'"
+       onMouseOut="this.style.color='#6c757d'">
       <i class="fab fa-stack-overflow fa-1x"></i>
-    </a><a class="social mx-1" href="https://www.twitter.com/https://twitter.com/TheCalmBluesta" style="color: #6c757d" onmouseover="this.style.color='#1da1f2'" onmouseout="this.style.color='#6c757d'">
+    </a><a class="social mx-1"  href="https://www.twitter.com/https://twitter.com/TheCalmBluesta"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1da1f2'"
+       onMouseOut="this.style.color='#6c757d'">
       <i class="fab fa-twitter fa-1x"></i>
     </a>
 
-</div>
-<small id="attribution">
+</div><small id="attribution">
     theme <a href="https://github.com/YoussefRaafatNasry/portfolYOU">portfolYOU</a>
   </small>
   

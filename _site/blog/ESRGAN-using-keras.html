@@ -13,7 +13,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="I turn coffee :coffee: into code, use tabs over spaces and never broke production.">
+  <meta name="description" content="I'm Chhaya Vankhede a Machine learning engineer, making machine learning work in real world.">
 
   <title>CSVANKHEDE</title>
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
@@ -45,8 +45,7 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav ml-auto">
-<a class="nav-item nav-link " href="/projects/">Projects</a>
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link " href="/projects/">Projects</a>
 
       <a class="nav-item nav-link active" href="/blog/">Blog</a>
 
@@ -86,7 +85,7 @@
 
 <p>Before diving into the ESRGAN first let’s get a high-level understanding of the GAN. GANs are capable of generating Fake data that looks realistic. Some of the GAN applications are to enhance the quality of the image. The high-level architecture of the GAN contains two main networks namely the** generator network** and the <strong>discriminator network</strong>. The generator network tries to generate the fake data and the discriminator network tries to distinguish between real and fake data, hence helping the generator to generate more realistic data.</p>
 
-<p><img src="https://cdn-images-1.medium.com/max/2000/1*NqNDgEmAZHhFOyNLp4sJ3w.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*NqNDgEmAZHhFOyNLp4sJ3w.png" alt="" /></p>
 
 <h2 id="esrgan">ESRGAN</h2>
 
@@ -94,11 +93,11 @@
 
 <p><strong>Network architecture</strong></p>
 
-<p><img src="https://cdn-images-1.medium.com/max/2048/1*Mr7NA-EEcdYvdlQMKIpr3w.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/2048/1*Mr7NA-EEcdYvdlQMKIpr3w.png" alt="" /></p>
 
 <p><strong>Residual in Residual Dense Block(RRDB)</strong></p>
 
-<p><img src="https://cdn-images-1.medium.com/max/2048/1*mqxL9uUy2RHmXiYCsnPKjw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/2048/1*mqxL9uUy2RHmXiYCsnPKjw.png" alt="" /></p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from keras.layers import Add, Concatenate, LeakyReLU, Conv2D, Lambda
 
@@ -154,7 +153,7 @@ def RRDB(inpt):
 
 <p>Besides using standard discriminator ESRGAN uses the relativistic GAN, which tries to predict the probability that the real image is relatively more realistic than a fake image.</p>
 
-<p><img src="https://cdn-images-1.medium.com/max/2018/1*jq3iXHKxy0boSM60DK_zAw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/2018/1*jq3iXHKxy0boSM60DK_zAw.png" alt="" /></p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from keras import backend as K
 
@@ -168,9 +167,9 @@ def relativistic_loss(x):
 
 <p>The discriminator loss and adversarial loss is then defined as below.</p>
 
-<p><img src="https://cdn-images-1.medium.com/max/2918/1*cdyehCB3VHGcA8IoUdLm1g.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/2918/1*cdyehCB3VHGcA8IoUdLm1g.png" alt="" /></p>
 
-<p><img src="https://cdn-images-1.medium.com/max/2876/1*XU9dPRswc2w8GWvELCAXvQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/2876/1*XU9dPRswc2w8GWvELCAXvQ.png" alt="" /></p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dis_loss =
 K.mean(K.binary_crossentropy(K.zeros_like(fake_logits),fake_logits)+                    K.binary_crossentropy(K.ones_like(real_logits),real_logits))
@@ -190,7 +189,7 @@ original_fearure = vgg(preprocess_vgg(gen_hr))
 percept_loss = tf.losses.mean_squared_error(generated_feature,original_fearure)
 </code></pre></div></div>
 
-<p><img src="https://cdn-images-1.medium.com/max/2446/1*UW8ekH0MX73tg1wkjlHEyw.png" alt="Representative feature maps before and after activation for image ‘baboon’. With the network going deeper, most of the features after activation become inactive while features before activation contains more information."><em>Representative feature maps before and after activation for image ‘baboon’. With the network going deeper, most of the features after activation become inactive while features before activation contains more information.</em></p>
+<p><img src="https://cdn-images-1.medium.com/max/2446/1*UW8ekH0MX73tg1wkjlHEyw.png" alt="Representative feature maps before and after activation for image ‘baboon’. With the network going deeper, most of the features after activation become inactive while features before activation contains more information." /><em>Representative feature maps before and after activation for image ‘baboon’. With the network going deeper, most of the features after activation become inactive while features before activation contains more information.</em></p>
 
 <p><strong>Training details</strong></p>
 
@@ -217,25 +216,44 @@ percept_loss = tf.losses.mean_squared_error(generated_feature,original_fearure)
     by <strong>Chhaya Vankhede</strong>
   </small>
 
-  <div class="container-fluid justify-content-center">
-<a class="social mx-1" href="mailto:c.s.vankhede@gmail.com" style="color: #6c757d" onmouseover="this.style.color='#db4437'" onmouseout="this.style.color='#6c757d'">
+  <div class="container-fluid justify-content-center"><a class="social mx-1"  href="mailto:c.s.vankhede@gmail.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
       <i class="fas fa-envelope fa-1x"></i>
-    </a><a class="social mx-1" href="https://www.github.com/https://github.com/csvankhede" style="color: #6c757d" onmouseover="this.style.color='#333333'" onmouseout="this.style.color='#6c757d'">
+    </a><a class="social mx-1"  href="https://www.github.com/https://github.com/csvankhede"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
       <i class="fab fa-github fa-1x"></i>
-    </a><a class="social mx-1" href="https://www.kaggle.com/https://www.kaggle.com/csvankhede" style="color: #6c757d" onmouseover="this.style.color='#20beff'" onmouseout="this.style.color='#6c757d'">
+    </a><a class="social mx-1"  href="https://www.kaggle.com/https://www.kaggle.com/csvankhede"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#20beff'"
+       onMouseOut="this.style.color='#6c757d'">
       <i class="fab fa-kaggle fa-1x"></i>
-    </a><a class="social mx-1" href="https://www.linkedin.com/in/https://www.linkedin.com/in/chhaya-vankhede-923a17146/" style="color: #6c757d" onmouseover="this.style.color='#007bb5'" onmouseout="this.style.color='#6c757d'">
+    </a><a class="social mx-1"  href="https://www.linkedin.com/in/https://www.linkedin.com/in/chhaya-vankhede-923a17146/"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
       <i class="fab fa-linkedin-in fa-1x"></i>
-    </a><a class="social mx-1" href="https://medium.com/@https://medium.com/@c.s.vankhede" style="color: #6c757d" onmouseover="this.style.color='#00ab6c'" onmouseout="this.style.color='#6c757d'">
+    </a><a class="social mx-1"  href="https://medium.com/@https://medium.com/@c.s.vankhede"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#00ab6c'"
+       onMouseOut="this.style.color='#6c757d'">
       <i class="fab fa-medium fa-1x"></i>
-    </a><a class="social mx-1" href="https://stackoverflow.com/u/https://stackoverflow.com/users/5847441/chhaya-vankhede" style="color: #6c757d" onmouseover="this.style.color='#f48024'" onmouseout="this.style.color='#6c757d'">
+    </a><a class="social mx-1"  href="https://stackoverflow.com/u/https://stackoverflow.com/users/5847441/chhaya-vankhede"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#f48024'"
+       onMouseOut="this.style.color='#6c757d'">
       <i class="fab fa-stack-overflow fa-1x"></i>
-    </a><a class="social mx-1" href="https://www.twitter.com/https://twitter.com/TheCalmBluesta" style="color: #6c757d" onmouseover="this.style.color='#1da1f2'" onmouseout="this.style.color='#6c757d'">
+    </a><a class="social mx-1"  href="https://www.twitter.com/https://twitter.com/TheCalmBluesta"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1da1f2'"
+       onMouseOut="this.style.color='#6c757d'">
       <i class="fab fa-twitter fa-1x"></i>
     </a>
 
-</div>
-<small id="attribution">
+</div><small id="attribution">
     theme <a href="https://github.com/YoussefRaafatNasry/portfolYOU">portfolYOU</a>
   </small>
   

@@ -13,7 +13,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="I turn coffee :coffee: into code, use tabs over spaces and never broke production.">
+  <meta name="description" content="I'm Chhaya Vankhede a Machine learning engineer, making machine learning work in real world.">
 
   <title>CSVANKHEDE</title>
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
@@ -45,8 +45,7 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav ml-auto">
-<a class="nav-item nav-link " href="/projects/">Projects</a>
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link " href="/projects/">Projects</a>
 
       <a class="nav-item nav-link active" href="/blog/">Blog</a>
 
@@ -107,19 +106,19 @@
 
 <p>There exists some face detection techniques. Select the right one based on your requirements, have a look at this <a href="https://medium.com/@Intellica.AI/a-guide-for-building-your-own-face-detection-recognition-system-910560fe3eb7">blog</a> to find more info.</p>
 
-<p><img src="https://cdn-images-1.medium.com/max/2000/1*ZLYUrNgoPyvhU1aORGPxzg.png" alt="Face detection techniques"><em>Face detection techniques</em></p>
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*ZLYUrNgoPyvhU1aORGPxzg.png" alt="Face detection techniques" /><em>Face detection techniques</em></p>
 
 <p>As face detection is widely used in mobile phone applications. So which one will be right choice to work well with mobile devices? A recent Research paper by google introduced a light weight and well-performing face detector which works well with mobile GPU, giving real-time performance.</p>
 
-<p><img src="https://cdn-images-1.medium.com/max/2000/1*PaM_aVmzVNB_IVfcKsqVmg.png" alt="BlazeFace"><em>BlazeFace</em></p>
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*PaM_aVmzVNB_IVfcKsqVmg.png" alt="BlazeFace" /><em>BlazeFace</em></p>
 
 <p>The paper provided details of the main building blocks of the model. We can recreate model using the architecture provided in the paper. There are two main building blocks described in paper named single BlazeBlock and double BlazeBlock.</p>
 
-<p><img src="https://cdn-images-1.medium.com/max/2000/1*SNhogwDamDUEXqXV0I1G-g.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*SNhogwDamDUEXqXV0I1G-g.png" alt="" /></p>
 
 <p>In these blocks Depthwise convolutional layers are used which boosts the speed of the model. The 5x5 kernel is used for DW conv and 1x1 kernel for conv layers. The model uses 5 single BlazeBlocks and 6 double BlazeBlocks.</p>
 
-<p><img src="https://cdn-images-1.medium.com/max/2000/1*Y3iOn1CZtn1KU4almFcwOA.png" alt="Model architecture"><em>Model architecture</em></p>
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*Y3iOn1CZtn1KU4almFcwOA.png" alt="Model architecture" /><em>Model architecture</em></p>
 
 <p>For anchor computation two Conv layers with 16x16 kernel size and 8x8 kernel size is used with number of 2 and 8 filters respectively. Output of the model requires post processing, as the number of anchors overlaping increases significantly with the size of the object. This prediction is first croped to fit in the borders of the image dimensions, then NMS is applied to get the final boxes. These boxes can be resized to original size of the image as the input image was resized to 128x128. The final bounding boxes can be randered on the image using cv2.rectangle.</p>
 
@@ -153,7 +152,7 @@ plt.imshow(orig_frame)
 plt.show()
 </code></pre></div></div>
 
-<p><img src="https://cdn-images-1.medium.com/max/2000/1*1rJYvPgApZ_8rcaVmUdg7w.png" alt="edited emoji image"><em>edited emoji image</em></p>
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*1rJYvPgApZ_8rcaVmUdg7w.png" alt="edited emoji image" /><em>edited emoji image</em></p>
 
 <p>Save the model so it can be used for further task such as face recognition, face augmentation, etc. The paper BlazeFace: Sub-millisecond Neural Face Detection on Mobile GPUs is available <a href="https://arxiv.org/pdf/1907.05047.pdf">here</a>.</p>
 
@@ -171,25 +170,44 @@ plt.show()
     by <strong>Chhaya Vankhede</strong>
   </small>
 
-  <div class="container-fluid justify-content-center">
-<a class="social mx-1" href="mailto:c.s.vankhede@gmail.com" style="color: #6c757d" onmouseover="this.style.color='#db4437'" onmouseout="this.style.color='#6c757d'">
+  <div class="container-fluid justify-content-center"><a class="social mx-1"  href="mailto:c.s.vankhede@gmail.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
       <i class="fas fa-envelope fa-1x"></i>
-    </a><a class="social mx-1" href="https://www.github.com/https://github.com/csvankhede" style="color: #6c757d" onmouseover="this.style.color='#333333'" onmouseout="this.style.color='#6c757d'">
+    </a><a class="social mx-1"  href="https://www.github.com/https://github.com/csvankhede"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
       <i class="fab fa-github fa-1x"></i>
-    </a><a class="social mx-1" href="https://www.kaggle.com/https://www.kaggle.com/csvankhede" style="color: #6c757d" onmouseover="this.style.color='#20beff'" onmouseout="this.style.color='#6c757d'">
+    </a><a class="social mx-1"  href="https://www.kaggle.com/https://www.kaggle.com/csvankhede"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#20beff'"
+       onMouseOut="this.style.color='#6c757d'">
       <i class="fab fa-kaggle fa-1x"></i>
-    </a><a class="social mx-1" href="https://www.linkedin.com/in/https://www.linkedin.com/in/chhaya-vankhede-923a17146/" style="color: #6c757d" onmouseover="this.style.color='#007bb5'" onmouseout="this.style.color='#6c757d'">
+    </a><a class="social mx-1"  href="https://www.linkedin.com/in/https://www.linkedin.com/in/chhaya-vankhede-923a17146/"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
       <i class="fab fa-linkedin-in fa-1x"></i>
-    </a><a class="social mx-1" href="https://medium.com/@https://medium.com/@c.s.vankhede" style="color: #6c757d" onmouseover="this.style.color='#00ab6c'" onmouseout="this.style.color='#6c757d'">
+    </a><a class="social mx-1"  href="https://medium.com/@https://medium.com/@c.s.vankhede"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#00ab6c'"
+       onMouseOut="this.style.color='#6c757d'">
       <i class="fab fa-medium fa-1x"></i>
-    </a><a class="social mx-1" href="https://stackoverflow.com/u/https://stackoverflow.com/users/5847441/chhaya-vankhede" style="color: #6c757d" onmouseover="this.style.color='#f48024'" onmouseout="this.style.color='#6c757d'">
+    </a><a class="social mx-1"  href="https://stackoverflow.com/u/https://stackoverflow.com/users/5847441/chhaya-vankhede"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#f48024'"
+       onMouseOut="this.style.color='#6c757d'">
       <i class="fab fa-stack-overflow fa-1x"></i>
-    </a><a class="social mx-1" href="https://www.twitter.com/https://twitter.com/TheCalmBluesta" style="color: #6c757d" onmouseover="this.style.color='#1da1f2'" onmouseout="this.style.color='#6c757d'">
+    </a><a class="social mx-1"  href="https://www.twitter.com/https://twitter.com/TheCalmBluesta"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1da1f2'"
+       onMouseOut="this.style.color='#6c757d'">
       <i class="fab fa-twitter fa-1x"></i>
     </a>
 
-</div>
-<small id="attribution">
+</div><small id="attribution">
     theme <a href="https://github.com/YoussefRaafatNasry/portfolYOU">portfolYOU</a>
   </small>
   
