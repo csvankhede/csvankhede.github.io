@@ -1,7 +1,23 @@
 - name: Github
-  percentage: 70
+  percentage: 75
   color: info
 
+- name: Apache Gobblin
+  percentage: 70
+  color: warning
+
+- name: Docker
+  percentage: 60
+  color: secondary
+
+- name: spark
+  percentage: 75
+  color: primary
+
 - name: Presentation
-  percentage: 90
+  percentage: 80
   color: success
+  
+- name: MySQL
+  percentage: 75
+  color:
