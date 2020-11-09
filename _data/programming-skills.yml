@@ -1,0 +1,19 @@
+- name: Machine learning
+  percentage: 90
+  color: danger
+
+- name: Deep learning
+  percentage: 80
+  color: 
+
+- name: Algorithms and data structures
+  percentage: 75
+  color: warning
+
+- name: Python
+  percentage: 90
+  color: dark
+
+- name: MySQL
+  percentage: 70
+  color:

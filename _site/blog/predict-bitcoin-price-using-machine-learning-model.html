@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="I turn coffee :coffee: into code, use tabs over spaces and never broke production.">
+
+  <title>CSVANKHEDE</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light">
+
+  <a class="navbar-brand" href="/"><h5><b>CSVANKHEDE</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+<a class="nav-item nav-link " href="/projects/">Projects</a>
+
+      <a class="nav-item nav-link active" href="/blog/">Blog</a>
+
+      <a class="nav-item nav-link " href="/about/">About</a>
+
+      
+
+    </div>
+  </div>
+
+</nav>
+  <div class="col-lg-10 mx-auto mt-5 post">
+  <h1><b>Predict Bitcoin price using Machine Learning Model</b></h1>
+
+<p class="post-metadata text-muted">
+  24 August 2019 -  
+  <b>2 mins read time</b>
+
+  <br>Tags: 
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#machine-learning">
+      <span class="tag badge badge-pill text-primary border border-primary">Machine Learning</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#lstm">
+      <span class="tag badge badge-pill text-primary border border-primary">LSTM</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#keras">
+      <span class="tag badge badge-pill text-primary border border-primary">Keras</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#cryptocurrency">
+      <span class="tag badge badge-pill text-primary border border-primary">Cryptocurrency</span>
+    </a>
+    </p>
+
+<p>Bitcoin has set the trend for investors to put their money and trust in the cryptocurrency over the past few years and no doubt that it is for the long run. So wouldn’t it be great if we can predict tomorrow’s price of Bitcoin? The value of the Bitcoin climbed its pick on Dec 2018.</p>
+
+<p>Although there are many cryptocurrencies out there here in this blog we will be predicting the Bitcoin price using LSTM by using the numerical historical data of Bitcoin. There are several resources and API’s which provides up-to-date coin price.</p>
+
+<p>LSTM is artificial recurrent neural network architecture with feedback connection. LSTM memory cell is composed of an input gate, output gate and forget gate</p>
+
+<p>Here the data set is quite simple as it contains only timestamp and Bitcoin price.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*yvrbe7367nJMSCHT.png" alt=""></p>
+
+<p>Below is the visualization of the data set.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*iM-HFcBZYN_WH2za.png" alt=""></p>
+
+<p>Here we will use the past 9 days data for prediction and normalize it. Below are the functions to perform this task.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*Got-ZEPzucPnVK2n.png" alt=""></p>
+
+<p>Split the data into train and test set.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*pyVelKTnKQmFaW1g.png" alt=""></p>
+
+<h2 id="create-a-model">Create a Model</h2>
+
+<p>The model will consist of two LSTM layers and two dense layers. Below is the model architecture, you can try a different combination of the parameter and different model architectures. Usually, LSTM models consist of a few layers. As it is a regression problem so we will use linear as an activation function.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*YjPZzM-csuLOdYGM.png" alt=""></p>
+
+<p>Now it is time to train the model, you can train model over different parameters.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*hUea3uhxFSu9-15q.png" alt=""></p>
+
+<p>After 25 epochs model is trained and now we can use it to predict next day’s Bitcoin price. Do not forget to save the model so you can use it later.</p>
+
+<p>To predict for tomorrow’s price we need past 9 days data. Below new_sample is past 9 days data. We will normalize it and then we will predict. As it will give the value between 0 to 1 we need to de-normalize it to get the real value</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*8fAdOo7xUk8NzD87.png" alt=""></p>
+
+<p>Although it gives the pretty good results they are quite different than actual values. Therefore, the model needs to be improved.</p>
+
+<p><strong>Note</strong>: <em>It is not advisable to invest based on this prediction, one should always take the assistance of a qualified advisor for investment.</em></p>
+
+<p>Thanks for reading this article.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*9KMQ6SuIDSX6uEN3" alt=""></p>
+
+<p>AI and machine learning enthusiast. <a href="https://csvankhede.wordpress.com/author/csvankhede/">View all posts by csvankhede</a></p>
+
+<p><strong>Published</strong></p>
+
+<p><em>Originally published at <a href="https://csvankhede.wordpress.com/2019/08/24/bitcoin-price-prediction/">http://csvankhede.wordpress.com</a> on August 24, 2019.</em></p>
+
+
+
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>Chhaya Vankhede</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center">
+<a class="social mx-1" href="mailto:c.s.vankhede@gmail.com" style="color: #6c757d" onmouseover="this.style.color='#db4437'" onmouseout="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1" href="https://www.github.com/https://github.com/csvankhede" style="color: #6c757d" onmouseover="this.style.color='#333333'" onmouseout="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1" href="https://www.kaggle.com/https://www.kaggle.com/csvankhede" style="color: #6c757d" onmouseover="this.style.color='#20beff'" onmouseout="this.style.color='#6c757d'">
+      <i class="fab fa-kaggle fa-1x"></i>
+    </a><a class="social mx-1" href="https://www.linkedin.com/in/https://www.linkedin.com/in/chhaya-vankhede-923a17146/" style="color: #6c757d" onmouseover="this.style.color='#007bb5'" onmouseout="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+    </a><a class="social mx-1" href="https://medium.com/@https://medium.com/@c.s.vankhede" style="color: #6c757d" onmouseover="this.style.color='#00ab6c'" onmouseout="this.style.color='#6c757d'">
+      <i class="fab fa-medium fa-1x"></i>
+    </a><a class="social mx-1" href="https://stackoverflow.com/u/https://stackoverflow.com/users/5847441/chhaya-vankhede" style="color: #6c757d" onmouseover="this.style.color='#f48024'" onmouseout="this.style.color='#6c757d'">
+      <i class="fab fa-stack-overflow fa-1x"></i>
+    </a><a class="social mx-1" href="https://www.twitter.com/https://twitter.com/TheCalmBluesta" style="color: #6c757d" onmouseover="this.style.color='#1da1f2'" onmouseout="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-1x"></i>
+    </a>
+
+</div>
+<small id="attribution">
+    theme <a href="https://github.com/YoussefRaafatNasry/portfolYOU">portfolYOU</a>
+  </small>
+  
+</footer>
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+</body>
+
+</html>

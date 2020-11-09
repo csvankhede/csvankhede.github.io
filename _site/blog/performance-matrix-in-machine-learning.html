@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="I turn coffee :coffee: into code, use tabs over spaces and never broke production.">
+
+  <title>CSVANKHEDE</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light">
+
+  <a class="navbar-brand" href="/"><h5><b>CSVANKHEDE</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+<a class="nav-item nav-link " href="/projects/">Projects</a>
+
+      <a class="nav-item nav-link active" href="/blog/">Blog</a>
+
+      <a class="nav-item nav-link " href="/about/">About</a>
+
+      
+
+    </div>
+  </div>
+
+</nav>
+  <div class="col-lg-10 mx-auto mt-5 post">
+  <h1><b>Performance matrix in Machine Learning</b></h1>
+
+<p class="post-metadata text-muted">
+  01 July 2019 -  
+  <b>3 mins read time</b>
+
+  <br>Tags: 
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#machine-learning">
+      <span class="tag badge badge-pill text-primary border border-primary">Machine Learning</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#performace-matrix">
+      <span class="tag badge badge-pill text-primary border border-primary">Performace matrix</span>
+    </a>
+    </p>
+
+<p>In the context of machine learning the performance matrix is used after implementation of the ML algorithm to find out the effectiveness of the model. There are various performance matrices out there relevant for the evaluation of different ML algorithm.</p>
+
+<p>Testing data is used to evaluate the performance matrix as training data is already used for tuning the model to predict the output.</p>
+
+<p><strong>Confusion matrix</strong></p>
+
+<p>The confusion matrix is mostly used matrix in Machine Learning. confusion matrix is used for classification problems. We can calculate lots of other performance matrix based on the numbers inside the confusion matrix.</p>
+
+<p>After training and testing the model on train and test data respectively we can create confusion matrix based on testing results.</p>
+
+<p>Here for confusion matrix, we will consider the predicted labels (y’) and actual labels (y) of the test data.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*ASM0L272NhfPfXet.png" alt=""></p>
+
+<p><strong>True Positive(TP):</strong> It is a number of labels whose actual value and predicted value both are positive(1).</p>
+
+<p><strong>True Negative(TN):</strong> It is a number of labels whose actual value and predicted value both are negative(0).</p>
+
+<p><strong>False Positive(FP):</strong> It is the number of labels whose actual value is negative(0) but predicted as positive(1).</p>
+
+<p><strong>False Negative(FN):</strong> It is the number of labels whose actual value is positive(1) but predicted as negative(0).</p>
+
+<p>Here the main aim is to reduce FP and FN which will eventually increase TP and TN.</p>
+
+<p>Now we will see some of the other performance matrices which can be calculated using TP, FP, TN, and FN.</p>
+
+<p><strong>Accuracy</strong></p>
+
+<p>Accuracy calculates how many points are correctly classified amongst all the points.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*f7aY1a2yW7neVmwb.png" alt=""></p>
+
+<p>It is preferred to use accuracy only when you have balanced dataset, else it will mislead the performance.</p>
+
+<p><strong>Precision</strong></p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*O8C0OapEckRMdVFL.png" alt=""></p>
+
+<p>When you want to measure what proportion of the prediction is correct precision is useful.</p>
+
+<p>Precision gives the information about the model performance with respect to False Positive.</p>
+
+<p><strong>Recall</strong></p>
+
+<p>Recall measures what proportion of the positive points are predicted positive. In other words, the proportion of actual positives is identified correctly.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*DRAaj7_W6dCKpoBT.png" alt=""></p>
+
+<p>Recall gives the information about the model performance with respect to False Negative.</p>
+
+<p><strong>F1- score</strong></p>
+
+<p>F1 score is a measure of the test’s accuracy. It gives balanced value between precision and recall. To calculate F1 score the harmonic mean of precision and recall is used.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*JVkx-yF4GDuReQxq.png" alt=""></p>
+
+<p>Here let’s say,</p>
+
+<p>A = Precision</p>
+
+<p>H = Half of the Harmonic mean</p>
+
+<p>F1-Score is a good matrix when data is imbalanced.</p>
+
+<p><strong>Log — loss</strong></p>
+
+<p>Log loss is a probability-based classification matrix. Log loss uses the prediction where prediction is a probability value between 0 to 1. For any problem lower log loss is preferred as it indicates the better performance of the model.</p>
+
+<p>The log loss extensively used in logistic regression and neural network. For comparing models log loss is a good option.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*VDIBGrXorNZ1pdR2.png" alt=""></p>
+
+<p><strong>Hamming Loss</strong></p>
+
+<p>Hamming loss is the fraction of the wrong label to the total number of labels. Hamming loss is equal to (1 -accuracy) for the binary case. Hamming loss is mostly used in multi-label classification problems.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*t6vFj82AVR9c6E3f.png" alt=""></p>
+
+<p>N = no. of data points</p>
+
+<p>L = size of label</p>
+
+<p><strong>ROC — AUC curve</strong></p>
+
+<p>Here ROC stands for receiver operating characteristic curve and AUC stands for Area Under the ROC Curve.</p>
+
+<p>ROC-AUC curve is a measurement of the model performance at various threshold settings.ROC curve plots two parameters <strong>TPR</strong> and <strong>FPR.</strong></p>
+
+<p>**TPR **(True Positive Rate): TPR is nothing but recall.</p>
+
+<p>**FPR **(False Positive Rate): FPR is (1- specificity).</p>
+
+<p>TPR and FPR can be defined as follows.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*1hydQdFwPxsU5Squ.png" alt=""></p>
+
+<p>AUC measures the area underneath the entire ROC curve. AUC provides a measure of the performance across all possible thresholds.</p>
+
+<p>AUC ranges from 0 to 1. Value of AUC greater than 0.5 is preferred.</p>
+
+<p>Here 0 means predictions are 100% wrong and 1 means predictions are 100% right.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*-5_S-YVKeYHqITN7.png" alt=""></p>
+
+<p><em>Originally published at <a href="https://csvankhede.wordpress.com/2019/07/01/performance-matrix-in-machine-learning/">http://csvankhede.wordpress.com</a> on July 1, 2019.</em></p>
+
+
+
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>Chhaya Vankhede</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center">
+<a class="social mx-1" href="mailto:c.s.vankhede@gmail.com" style="color: #6c757d" onmouseover="this.style.color='#db4437'" onmouseout="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1" href="https://www.github.com/https://github.com/csvankhede" style="color: #6c757d" onmouseover="this.style.color='#333333'" onmouseout="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1" href="https://www.kaggle.com/https://www.kaggle.com/csvankhede" style="color: #6c757d" onmouseover="this.style.color='#20beff'" onmouseout="this.style.color='#6c757d'">
+      <i class="fab fa-kaggle fa-1x"></i>
+    </a><a class="social mx-1" href="https://www.linkedin.com/in/https://www.linkedin.com/in/chhaya-vankhede-923a17146/" style="color: #6c757d" onmouseover="this.style.color='#007bb5'" onmouseout="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+    </a><a class="social mx-1" href="https://medium.com/@https://medium.com/@c.s.vankhede" style="color: #6c757d" onmouseover="this.style.color='#00ab6c'" onmouseout="this.style.color='#6c757d'">
+      <i class="fab fa-medium fa-1x"></i>
+    </a><a class="social mx-1" href="https://stackoverflow.com/u/https://stackoverflow.com/users/5847441/chhaya-vankhede" style="color: #6c757d" onmouseover="this.style.color='#f48024'" onmouseout="this.style.color='#6c757d'">
+      <i class="fab fa-stack-overflow fa-1x"></i>
+    </a><a class="social mx-1" href="https://www.twitter.com/https://twitter.com/TheCalmBluesta" style="color: #6c757d" onmouseover="this.style.color='#1da1f2'" onmouseout="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-1x"></i>
+    </a>
+
+</div>
+<small id="attribution">
+    theme <a href="https://github.com/YoussefRaafatNasry/portfolYOU">portfolYOU</a>
+  </small>
+  
+</footer>
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+</body>
+
+</html>

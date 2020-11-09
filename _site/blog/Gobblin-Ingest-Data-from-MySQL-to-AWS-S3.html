@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="I turn coffee :coffee: into code, use tabs over spaces and never broke production.">
+
+  <title>CSVANKHEDE</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light">
+
+  <a class="navbar-brand" href="/"><h5><b>CSVANKHEDE</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+<a class="nav-item nav-link " href="/projects/">Projects</a>
+
+      <a class="nav-item nav-link active" href="/blog/">Blog</a>
+
+      <a class="nav-item nav-link " href="/about/">About</a>
+
+      
+
+    </div>
+  </div>
+
+</nav>
+  <div class="col-lg-10 mx-auto mt-5 post">
+  <h1><b>Gobblin data Ingestion from Mysql to S3</b></h1>
+
+<p class="post-metadata text-muted">
+  26 May 2020 -  
+  <b>3 mins read time</b>
+
+  <br>Tags: 
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#apache-gobblin">
+      <span class="tag badge badge-pill text-primary border border-primary">Apache Gobblin</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#aws-s3">
+      <span class="tag badge badge-pill text-primary border border-primary">Aws S3</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#big-data">
+      <span class="tag badge badge-pill text-primary border border-primary">Big Data</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#mysql">
+      <span class="tag badge badge-pill text-primary border border-primary">MySQL</span>
+    </a>
+    </p>
+
+<p>https://gobblin.readthedocs.io/en/latest/img/Gobblin-Logo.png</p>
+
+<h2 id="gobblin">Gobblin</h2>
+
+<p>Gobblin is unified data ingestion framework for extracting, transforming and loading large volume of data from variety of data sources. User can define job according to their requirements and get it done easily.
+Below figure show the task flow of the gobblin job.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/3460/0*Nsb4Hq1_qXHHMDJH.png" alt="[https://gobblin.readthedocs.io/en/latest/img/Gobblin-Constructs.png](https://gobblin.readthedocs.io/en/latest/img/Gobblin-Constructs.png)"><em><a href="https://gobblin.readthedocs.io/en/latest/img/Gobblin-Constructs.png">https://gobblin.readthedocs.io/en/latest/img/Gobblin-Constructs.png</a></em></p>
+
+<p>The main properties of the gobblin jobs are Source, Extractor, Converter and Publisher. User can also use Quality Checker, Fork operator and Writer properties in gobblin job.
+This post will guide for data ingestion from MySQL to s3.</p>
+
+<p>First download and add <a href="https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/2.8.5/hadoop-aws-2.8.5.jar">aws-java-sdk-&lt;version&gt;.jar</a> and <a href="https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk/1.11.80/aws-java-sdk-1.11.80.jar">hadoop-aws-&lt;version&gt;.jar</a> to <code class="language-plaintext highlighter-rouge">gobblin-dist/lib/</code>.</p>
+
+<h2 id="mysql">MySQL</h2>
+
+<p>Create sample database and add some data within it. Below example creates employees database with only single table named employees.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql&gt; CREATE DATABASE IF NOT EXISTS employees; 
+mysql&gt; USE employees; 
+mysql&gt; CREATE TABLE employees ( 
+    -&gt; emp_no INT NOT NULL, 
+    -&gt; birth_date DATE NOT NULL,  
+    -&gt; first_name VARCHAR(14) NOT NULL, 
+    -&gt; last_name VARCHAR(16) NOT NULL, 
+    -&gt; gender ENUM ('M','F') NOT NULL, 
+    -&gt; hire_date DATE NOT NULL, 
+    -&gt; PRIMARY KEY (emp_no)); 
+mysql&gt; INSERT INTO `employees` VALUES 
+    -&gt; (10001,'1953-09-02','Georgi','Facello','M','1986-06-26'), 
+    -&gt; (10002,'1964-06-02','Bezalel','Simmel','F','1985-11-21'), 
+    -&gt; (10003,'1959-12-03','Parto','Bamford','M','1986-08-28'), 
+    -&gt; (10004,'1954-05-01','Chirstian','Koblick','M','1986-12-01'),     
+    -&gt; (10005,'1955-01-21','Kyoichi','Maliniak','M','1989-09-12'), 
+    -&gt; (10006,'1953-04-20','Anneke','Preusig','F','1989-06-02'), 
+    -&gt; (10007,'1957-05-23','Tzvetan','Zielinski','F','1989-02-10'),    
+    -&gt; (10008,'1958-02-19','Saniya','Kalloufi','M','1994-09-15'), 
+    -&gt; (10009,'1952-04-19','Sumant','Peac','F','1985-02-18');
+</code></pre></div></div>
+
+<h2 id="gobblin-job">Gobblin job</h2>
+
+<p>Create two folders named <code class="language-plaintext highlighter-rouge">job_config</code> and <code class="language-plaintext highlighter-rouge">work_dir</code>. Create two files in job_config directory named <code class="language-plaintext highlighter-rouge">job.properties</code> and <code class="language-plaintext highlighter-rouge">MysqlToS3.pull</code>. Here job.properties contains the common properties of the all pull files within its directory and subsquent directories and .pull file contains unique properties for perticular job.</p>
+
+<p>As mentioned earlier job has mainlly four properties Source, Extractor, Converter and Publisher. Add source and sink configurations in properties files as below.</p>
+<blockquote>
+  <p><em>Find more details on gobblin job properties <a href="https://gobblin.readthedocs.io/en/latest/user-guide/Configuration-Properties-Glossary/">here</a>.</em></p>
+</blockquote>
+
+<h2 id="source-properties">Source properties</h2>
+
+<p>Add source class and credentials as below. (Replace credentials)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Source properties - source class to extract data from Mysql Source source.class=org.apache.gobblin.source.extractor.extract.jdbc.MysqlSource 
+
+# Source properties 
+source.max.number.of.partitions=1 source.querybased.partition.interval=1 source.querybased.is.compression=false source.querybased.watermark.type=timestamp 
+
+# Source connection properties source.conn.driver=com.mysql.jdbc.Driver 
+source.conn.username=&lt;username&gt; 
+source.conn.password=&lt;password&gt; 
+source.conn.host=&lt;hostname&gt; 
+source.conn.port=&lt;port&gt; source.conn.timeout=1500
+</code></pre></div></div>
+
+<h2 id="converter-and-qualitychecker-properties">Converter and Qualitychecker properties</h2>
+
+<p>Provide converter class and other properties. Here AVRO converter is used.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Converter properties - Record from mysql source will be processed by the below series of converters converter.classes=org.apache.gobblin.converter.avro.JsonIntermediateToAvroConverter 
+
+# date columns format 
+converter.avro.timestamp.format=YYYY-MM-DD HH:MM:SS converter.avro.date.format=yyyy-MM-dd converter.avro.time.format=HH:mm:ss 
+
+# Qualitychecker properties qualitychecker.task.policies=org.apache.gobblin.policies.count.RowCountPolicy,org.apache.gobblin.policies.schema.SchemaCompatibilityPolicy 
+qualitychecker.task.policy.types=OPTIONAL,OPTIONAL
+</code></pre></div></div>
+
+<h2 id="writer-and-publisher-properties">Writer and Publisher properties</h2>
+
+<p>Add output format, destination type, filesystem uri, etc properties.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Writer properties 
+writer.destination.type=HDFS 
+writer.output.format=AVRO 
+writer.fs.uri=s3a://&lt;bucket-name&gt;/employee/final writer.output.dir=s3a://&lt;bucket-name&gt;/employee/task-output writer.builder.class=org.apache.gobblin.writer.AvroDataWriterBuilder 
+
+state.store.fs.uri=s3a://&lt;bucket-name&gt;/employee/state state.store.dir=/employee/state-store task.data.root.dir=s3a://&lt;bucket-name&gt;/employee/workspace/task-staging 
+
+# Publisher properties data.publisher.type=org.apache.gobblin.publisher.BaseDataPublisher data.publisher.fs.uri=s3a://&lt;bucket-name&gt;/employee/ data.publisher.metadata.output.dir=s3a://&lt;bucket-name&gt;/employee/metadata_out 
+data.publisher.final.dir=s3a://&lt;bucket-name&gt;/employee/job-output 
+
+# metrics and mapreduce properties 
+mr.job.max.mappers=1 
+mr.job.root.dir=/employee/working metrics.reporting.file.enabled=true metrics.log.dir=/employee/metrics 
+metrics.reporting.file.suffix=txt
+</code></pre></div></div>
+
+<h2 id="sink-properties">Sink properties</h2>
+
+<p>Create new access key in aws, a buffer directory in local system and add below sink properties.</p>
+<blockquote>
+  <p><em>Find aws s3a configurations <a href="https://hadoop.apache.org/docs/current/hadoop-aws/tools/hadoop-aws/index.html">here</a></em></p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fs.s3a.access.key=&lt;AWSAccessKeyId&gt; 
+fs.s3a.secret.key=&lt;AWSSecretKey&gt; fs.s3a.buffer.dir=/path/to/buffer/dir 
+fs.s3a.endpoint=s3.&lt;region&gt;.amazonaws.com fs.s3a.path.style.access=true
+</code></pre></div></div>
+
+<p>Create MysqlToS3.pull file and add job properties, schema name, entity name, etc.</p>
+<blockquote>
+  <p><em>Keep only those .pull files in this directory which you want to run.</em></p>
+</blockquote>
+
+<h2 id="mysqltos3pull">MysqlToS3.pull</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># job properties 
+job.name=MysqlToS3 
+job.group=movielense 
+job.description=pull data from mysql to S3 
+job.lock.enabled=flase 
+
+# Source properties 
+source.querybased.schema=movielense 
+source.entity=links 
+source.querybased.extract.type=snapshot 
+
+# Extract properties 
+extract.namespace=movielense 
+extract.table.type=snapshot_only 
+extract.table.name=links
+</code></pre></div></div>
+
+<p>Before starting the job start mysql server.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo service mysql start 
+$ export GOBBLIN_JOB_CONFIG_DIR=/path/to/job_config 
+$ export GOBBLIN_WORK_DIR=/path/to/work_dir 
+
+# start job 
+$ gobblin.sh service standalone start --jars /gobblin/build/gobblin-sql/libs/gobblin-sql-0.15.0.jar 
+</code></pre></div></div>
+
+<p>To see the execution details open the <code class="language-plaintext highlighter-rouge">standalone.out</code> file in <code class="language-plaintext highlighter-rouge">/gobblin/build/gobblin-sql/logs/</code>. On completion of the job the <code class="language-plaintext highlighter-rouge">.pull</code> file will be renamed as <code class="language-plaintext highlighter-rouge">.pull.done</code>. Check out <code class="language-plaintext highlighter-rouge">s3a://&lt;bucket-name&gt;/employee/job-output</code>.
+to see ingested data.</p>
+<blockquote>
+  <p><strong><em>References:</em></strong>
+<a href="https://gobblin.readthedocs.io/en/latest/Getting-Started/">https://gobblin.readthedocs.io/en/latest/Getting-Started/</a>
+<a href="https://gobblin.readthedocs.io/en/latest/user-guide/Configuration-Properties-Glossary/">https://gobblin.readthedocs.io/en/latest/user-guide/Configuration-Properties-Glossary/</a>
+<a href="https://hadoop.apache.org/docs/current/hadoop-aws/tools/hadoop-aws/index.html">https://hadoop.apache.org/docs/current/hadoop-aws/tools/hadoop-aws/index.html</a>
+<a href="https://gobblin.readthedocs.io/en/latest/case-studies/Publishing-Data-to-S3/">https://gobblin.readthedocs.io/en/latest/case-studies/Publishing-Data-to-S3/</a>
+<a href="https://github.com/apache/incubator-gobblin/blob/f5b893cf3972a89c6557e7899138e34493882dcb/gobblin-example/src/main/resources/distcpToS3.job">https://github.com/apache/incubator-gobblin/blob/f5b893cf3972a89c6557e7899138e34493882dcb/gobblin-example/src/main/resources/distcpToS3.job</a></p>
+</blockquote>
+
+
+
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>Chhaya Vankhede</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center">
+<a class="social mx-1" href="mailto:c.s.vankhede@gmail.com" style="color: #6c757d" onmouseover="this.style.color='#db4437'" onmouseout="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1" href="https://www.github.com/https://github.com/csvankhede" style="color: #6c757d" onmouseover="this.style.color='#333333'" onmouseout="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1" href="https://www.kaggle.com/https://www.kaggle.com/csvankhede" style="color: #6c757d" onmouseover="this.style.color='#20beff'" onmouseout="this.style.color='#6c757d'">
+      <i class="fab fa-kaggle fa-1x"></i>
+    </a><a class="social mx-1" href="https://www.linkedin.com/in/https://www.linkedin.com/in/chhaya-vankhede-923a17146/" style="color: #6c757d" onmouseover="this.style.color='#007bb5'" onmouseout="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+    </a><a class="social mx-1" href="https://medium.com/@https://medium.com/@c.s.vankhede" style="color: #6c757d" onmouseover="this.style.color='#00ab6c'" onmouseout="this.style.color='#6c757d'">
+      <i class="fab fa-medium fa-1x"></i>
+    </a><a class="social mx-1" href="https://stackoverflow.com/u/https://stackoverflow.com/users/5847441/chhaya-vankhede" style="color: #6c757d" onmouseover="this.style.color='#f48024'" onmouseout="this.style.color='#6c757d'">
+      <i class="fab fa-stack-overflow fa-1x"></i>
+    </a><a class="social mx-1" href="https://www.twitter.com/https://twitter.com/TheCalmBluesta" style="color: #6c757d" onmouseover="this.style.color='#1da1f2'" onmouseout="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-1x"></i>
+    </a>
+
+</div>
+<small id="attribution">
+    theme <a href="https://github.com/YoussefRaafatNasry/portfolYOU">portfolYOU</a>
+  </small>
+  
+</footer>
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+</body>
+
+</html>

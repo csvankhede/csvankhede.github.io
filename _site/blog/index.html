@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="I turn coffee :coffee: into code, use tabs over spaces and never broke production.">
+
+  <title>CSVANKHEDE</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light">
+
+  <a class="navbar-brand" href="/"><h5><b>CSVANKHEDE</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+<a class="nav-item nav-link " href="/projects/">Projects</a>
+
+      <a class="nav-item nav-link active" href="/blog/">Blog</a>
+
+      <a class="nav-item nav-link " href="/about/">About</a>
+
+      
+
+    </div>
+  </div>
+
+</nav>
+  <!-- Simple-Jekyll-Search https://github.com/christian-fei/Simple-Jekyll-Search -->
+
+<div class="input-group mt-5 px-3">
+  <input id="search-input" type="text" class="form-control search-box" placeholder="Search posts..">
+  <div class="input-group-append">
+    <span class="input-group-text border border-primary bg-primary text-white">
+      <i class="fas fa-search"></i>
+    </span>
+  </div>
+  <button class="btn btn-outline-primary ml-1" onclick="location.href = '/blog/tags';">
+    <i class="fas fa-tags"></i>
+  </button>
+</div>
+<ul class="px-3" id="results-container"></ul>
+
+<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<script>
+  var sjs = SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title}</a>',
+        noResultsText: '<li class="list-group-item">No results found</li>',
+        json: '/search.json'
+      })
+</script>
+<div class="card-group mt-2">
+
+  
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/blog/ESRGAN-using-keras" class="post card bg-warning">
+    <div class="card-body text-white">
+      <h3 class="card-title">ESRGAN using keras</h3>
+      <p class="card-text">
+        
+        <span class="badge badge-light text-warning">Deep Learning</span>
+        
+        <span class="badge badge-light text-warning">GAN</span>
+        
+        <span class="badge badge-light text-warning">Keras</span>
+        
+      </p>
+      <p class="card-text">ESRGAN implemetation using keras. An enhanced version of the SRGAN by modifying the model architecture and loss functions.</p>
+    </div>
+    <div class="card-footer text-white">
+      15 September 2020
+    </div>
+  </a>
+</div>
+  
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/blog/Blazeface-Face-detection-on-mobile-GPU" class="post card border border-success">
+    <div class="card-body text-dark">
+      <h3 class="card-title">Blazeface Face detection</h3>
+      <p class="card-text">
+        
+        <span class="badge badge-success">Deep Learning</span>
+        
+        <span class="badge badge-success">Face Detection</span>
+        
+        <span class="badge badge-success">MobileNet</span>
+        
+      </p>
+      <p class="card-text">Implemetation of Blaze Face model for face detection.</p>
+    </div>
+    <div class="card-footer text-dark">
+      18 August 2020
+    </div>
+  </a>
+</div>
+  
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/blog/Gobblin-Ingest-Data-from-MySQL-to-AWS-S3" class="post card bg-success">
+    <div class="card-body text-white">
+      <h3 class="card-title">Gobblin data Ingestion from Mysql to S3</h3>
+      <p class="card-text">
+        
+        <span class="badge badge-light text-success">Apache Gobblin</span>
+        
+        <span class="badge badge-light text-success">Aws S3</span>
+        
+        <span class="badge badge-light text-success">Big Data</span>
+        
+        <span class="badge badge-light text-success">MySQL</span>
+        
+      </p>
+      <p class="card-text">A unified data ingestion framework for extracting, transforming and loading large volume of data from variety of data sources.</p>
+    </div>
+    <div class="card-footer text-white">
+      26 May 2020
+    </div>
+  </a>
+</div>
+  
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/blog/home-credit-default-risk-using-machine-learning" class="post card bg-light">
+    <div class="card-body text-dark">
+      <h3 class="card-title">Home credit default risk using Machine Learning</h3>
+      <p class="card-text">
+        
+        <span class="badge badge-dark">Data Science</span>
+        
+        <span class="badge badge-dark">Machine Learning</span>
+        
+        <span class="badge badge-dark">Banking</span>
+        
+      </p>
+      <p class="card-text">Machine learning model that can predict the probability of the applicant’s capability to repay his loan, using applicants data and records.</p>
+    </div>
+    <div class="card-footer text-dark">
+      25 November 2019
+    </div>
+  </a>
+</div>
+  
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/blog/convolutional-neural-network-to-diagnose-malaria" class="post card border border-danger">
+    <div class="card-body text-dark">
+      <h3 class="card-title">Convolutional Neural Network to diagnose Malaria.</h3>
+      <p class="card-text">
+        
+        <span class="badge badge-danger">CNN</span>
+        
+        <span class="badge badge-danger">Deep Learning</span>
+        
+        <span class="badge badge-danger">Keras</span>
+        
+        <span class="badge badge-danger">Malaria</span>
+        
+      </p>
+      <p class="card-text">Convolutional neural network to detect malaria parasites in microscopic images of the blood samples.</p>
+    </div>
+    <div class="card-footer text-dark">
+      04 September 2019
+    </div>
+  </a>
+</div>
+  
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/blog/predict-bitcoin-price-using-machine-learning-model" class="post card bg-warning">
+    <div class="card-body text-white">
+      <h3 class="card-title">Predict Bitcoin price using Machine Learning Model</h3>
+      <p class="card-text">
+        
+        <span class="badge badge-light text-warning">Machine Learning</span>
+        
+        <span class="badge badge-light text-warning">LSTM</span>
+        
+        <span class="badge badge-light text-warning">Keras</span>
+        
+        <span class="badge badge-light text-warning">Cryptocurrency</span>
+        
+      </p>
+      <p class="card-text">Prediction of the Bitcoin price using LSTM by using the numerical historical data of the Bitcoin.</p>
+    </div>
+    <div class="card-footer text-white">
+      24 August 2019
+    </div>
+  </a>
+</div>
+  
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/blog/performance-matrix-in-machine-learning" class="post card bg-primary">
+    <div class="card-body text-white">
+      <h3 class="card-title">Performance matrix in Machine Learning</h3>
+      <p class="card-text">
+        
+        <span class="badge badge-light text-primary">Machine Learning</span>
+        
+        <span class="badge badge-light text-primary">Performace matrix</span>
+        
+      </p>
+      <p class="card-text">Performance matrix used in machine learning for evaluation of different ML algorithms.</p>
+    </div>
+    <div class="card-footer text-white">
+      01 July 2019
+    </div>
+  </a>
+</div>
+  
+  
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>Chhaya Vankhede</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center">
+<a class="social mx-1" href="mailto:c.s.vankhede@gmail.com" style="color: #6c757d" onmouseover="this.style.color='#db4437'" onmouseout="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1" href="https://www.github.com/https://github.com/csvankhede" style="color: #6c757d" onmouseover="this.style.color='#333333'" onmouseout="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1" href="https://www.kaggle.com/https://www.kaggle.com/csvankhede" style="color: #6c757d" onmouseover="this.style.color='#20beff'" onmouseout="this.style.color='#6c757d'">
+      <i class="fab fa-kaggle fa-1x"></i>
+    </a><a class="social mx-1" href="https://www.linkedin.com/in/https://www.linkedin.com/in/chhaya-vankhede-923a17146/" style="color: #6c757d" onmouseover="this.style.color='#007bb5'" onmouseout="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+    </a><a class="social mx-1" href="https://medium.com/@https://medium.com/@c.s.vankhede" style="color: #6c757d" onmouseover="this.style.color='#00ab6c'" onmouseout="this.style.color='#6c757d'">
+      <i class="fab fa-medium fa-1x"></i>
+    </a><a class="social mx-1" href="https://stackoverflow.com/u/https://stackoverflow.com/users/5847441/chhaya-vankhede" style="color: #6c757d" onmouseover="this.style.color='#f48024'" onmouseout="this.style.color='#6c757d'">
+      <i class="fab fa-stack-overflow fa-1x"></i>
+    </a><a class="social mx-1" href="https://www.twitter.com/https://twitter.com/TheCalmBluesta" style="color: #6c757d" onmouseover="this.style.color='#1da1f2'" onmouseout="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-1x"></i>
+    </a>
+
+</div>
+<small id="attribution">
+    theme <a href="https://github.com/YoussefRaafatNasry/portfolYOU">portfolYOU</a>
+  </small>
+  
+</footer>
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+</body>
+
+</html>

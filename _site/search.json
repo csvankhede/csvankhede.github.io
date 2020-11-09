@@ -1,0 +1,59 @@
+[
+  
+    {
+      "title"    : "ESRGAN using keras",
+      "category" : "",
+      "tags"     : "Deep Learning, GAN, Keras",
+      "url"      : "/blog/ESRGAN-using-keras",
+      "date"     : "2020-09-15 00:00:00 +0530"
+    } ,
+  
+    {
+      "title"    : "Blazeface Face detection",
+      "category" : "",
+      "tags"     : "Deep Learning, Face Detection, MobileNet",
+      "url"      : "/blog/Blazeface-Face-detection-on-mobile-GPU",
+      "date"     : "2020-08-18 00:00:00 +0530"
+    } ,
+  
+    {
+      "title"    : "Gobblin data Ingestion from Mysql to S3",
+      "category" : "",
+      "tags"     : "Apache Gobblin, Aws S3, Big Data, MySQL",
+      "url"      : "/blog/Gobblin-Ingest-Data-from-MySQL-to-AWS-S3",
+      "date"     : "2020-05-26 00:00:00 +0530"
+    } ,
+  
+    {
+      "title"    : "Home credit default risk using Machine Learning",
+      "category" : "",
+      "tags"     : "Data Science, Machine Learning, Banking",
+      "url"      : "/blog/home-credit-default-risk-using-machine-learning",
+      "date"     : "2019-11-25 00:00:00 +0530"
+    } ,
+  
+    {
+      "title"    : "Convolutional Neural Network to diagnose Malaria.",
+      "category" : "",
+      "tags"     : "CNN, Deep Learning, Keras, Malaria",
+      "url"      : "/blog/convolutional-neural-network-to-diagnose-malaria",
+      "date"     : "2019-09-04 00:00:00 +0530"
+    } ,
+  
+    {
+      "title"    : "Predict Bitcoin price using Machine Learning Model",
+      "category" : "",
+      "tags"     : "Machine Learning, LSTM, Keras, Cryptocurrency",
+      "url"      : "/blog/predict-bitcoin-price-using-machine-learning-model",
+      "date"     : "2019-08-24 00:00:00 +0530"
+    } ,
+  
+    {
+      "title"    : "Performance matrix in Machine Learning",
+      "category" : "",
+      "tags"     : "Machine Learning, Performace matrix",
+      "url"      : "/blog/performance-matrix-in-machine-learning",
+      "date"     : "2019-07-01 00:00:00 +0530"
+    } 
+  
+]

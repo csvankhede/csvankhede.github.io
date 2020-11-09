@@ -1,0 +1,7 @@
+- name: Github
+  percentage: 70
+  color: info
+
+- name: Presentation
+  percentage: 90
+  color: success
