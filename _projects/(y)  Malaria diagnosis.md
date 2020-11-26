@@ -14,5 +14,5 @@ This project is a simple creation of convolutional neural network using tensorfl
 It is a complete implementation of the model as an web app. User can select or capture image and get prediction on the microscopy image of the blood sample. The model is trained and tested on collected data and gives 94% accurate result.
 
 <p class="text-center">
-{% include elements/button.html link="http://localhost:4000/blog/convolutional-neural-network-to-diagnose-malaria" text="Learn More" %}
+{% include elements/button.html link="https://csvankhede.com/blog/convolutional-neural-network-to-diagnose-malaria" text="Learn More" %}
 </p>
